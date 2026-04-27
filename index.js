@@ -19,7 +19,11 @@ const exitsData = {
 app.get('/api/platform/analytics/stations/:stationId/exits', (req, res) => {
   const stationId = req.params.stationId;
   const data = exitsData[stationId];
-  res.json(data || []);
+  res.json({
+    success: true,
+    stationId: stationId,
+    data: data
+  });
 });
 
 // 关键：监听正确的端口和地址
