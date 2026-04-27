@@ -20,12 +20,9 @@ app.get('/api/platform/analytics/stations/:stationId/exits', (req, res) => {
   const stationId = req.params.stationId;
   const data = exitsData[stationId];
   res.json({
-    success: true,
-    stationId: stationId,
-    data: data
+    exits: data   // 用对象包裹，字段名为 exits
   });
 });
-
 // 关键：监听正确的端口和地址
 const port = process.env.PORT || 3000;
 app.listen(port, '0.0.0.0', () => {
